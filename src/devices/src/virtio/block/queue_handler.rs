@@ -21,7 +21,7 @@ pub(crate) struct QueueHandler<M: GuestAddressSpace> {
     pub ioeventfd: EventFd,
 }
 
-impl<M: GuestAddressSpace> MutEventSubscriber for QueueHandler<M> {
+impl<'q, M: GuestAddressSpace> MutEventSubscriber for QueueHandler<M> {
     fn process(&mut self, events: Events, ops: &mut EventOps) {
         let mut error = true;
 
